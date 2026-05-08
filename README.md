@@ -3,10 +3,10 @@
 ## 1. Setup kubectl and kind
 
 ```xml
-git clone https://github.com/xrootms/kind-kubelet-cluster-ingressController-setup.git
-cd kind-kubelet-cluster-ingressController-setup
+git clone https://github.com/saifuddin-md/kind-cluster-setup-with-ingress.git
+cd kind-cluster-setup-with-ingress
 chmod +x kind-kubectl.sh
-./kind-kubectl.sh
+./install-kind-kubectl.sh
 ```
 ### Verify
 
@@ -19,7 +19,7 @@ kubectl version --client
 ## 2. Setup Cluster with one master and two worker Node
 
 ```xml
-kind create cluster --name mycluster --config cluster-master-config.yml --image kindest/node:v1.33.1
+kind create cluster --name mycluster --config cluster-config.yml --image kindest/node:v1.33.1
 ```
 
 ### Verify
