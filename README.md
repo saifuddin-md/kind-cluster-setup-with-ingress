@@ -1,5 +1,6 @@
-# kind
-#### -----------------------------------------
+# kind Setup with Nginx Ingress Controller
+
+#### 
 ## 1. Setup kubectl and kind
 
 ```xml
@@ -15,7 +16,7 @@ kind version
 kubectl version --client
 ```
 
-#### -----------------------------------------
+#### -
 ## 2. Setup Cluster with one master and two worker Node
 
 ```xml
@@ -36,7 +37,7 @@ kubectl get nodes -o wide
 kubectl get ns
 ```
 
-#### -----------------------------------------
+#### -
 ## 3. Install Nginx Ingress Controller
 
 ```xml
@@ -52,8 +53,17 @@ kubectl get deploy -n ingress-nginx
 kubectl describe pod <pod-name> -n ingress-nginx
 ```
 
-#### -----------------------------------------
-### 3. Install HELM 
+#### 
+
+#### -
+## 4. Install metrics server 
+
+```xml
+kubectl apply -f metrics-server-components.yaml
+```
+
+
+### 5. Install HELM 
 
 
 ```xml
