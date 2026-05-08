@@ -1,7 +1,7 @@
 # kind Setup with Nginx Ingress Controller
 
 #### 
-## 1. Setup kubectl and kind
+## 1. Install kubectl and kind
 
 ```xml
 git clone https://github.com/saifuddin-md/kind-cluster-setup-with-ingress.git
