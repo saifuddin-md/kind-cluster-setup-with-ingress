@@ -19,9 +19,9 @@ kubectl version --client
 #### -
 ## 2. Setup Cluster with one master and two worker Node
 
-Delete:
-*kind delete cluster --name mycluster*
-*kind get clusters*
+#### Delete:
+- *kind delete cluster --name mycluster*
+- *kind get clusters*
 
 ```xml
 kind create cluster --name mycluster --config cluster-config.yml --image kindest/node:v1.33.1
