@@ -87,12 +87,15 @@ kubectl logs -n ingress-nginx <controller-pod>   # Check Ingress Logs
 
 ## 6. Install ArgoCD
 
+- **Create the Argo CD namespace**
 ```bash
 kubectl create namespace argocd
 ```
+- **Install Argo CD**
 ```bash
-kubectl apply -n argocd -f 
+kubectl apply -n argocd -f argo-cd-for-kind-install.yaml
 ```
+- **Wait for the pods:**
 ```bash
 kubectl get pods -n argocd -w
 ```
