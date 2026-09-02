@@ -27,67 +27,84 @@ kind create cluster --name mycluster --config cluster-config.yml --image kindest
 
 ### Verify
 
-```groovy
-kind get clusters
-kubectl get pods
+```bash
 docker ps
+kind get clusters
+kubectl get nodes
+kubectl get nodes -o wide
 kubectl get pods
 kubectl get ns
 kubectl get pods -n kube-system
-kubectl get nodes
-kubectl get nodes -o wide
-kubectl get ns
+kubectl cluster-info
 ```
 
 #### -
-## 3. Install Nginx Ingress Controller
+
+
+## 3. Install metrics server 
+
+```xml
+kubectl apply -f metrics-server-components.yaml
+```
+## 4. Install HELM 
+
+```bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version
+helm
+```
+---
+
+## 5. Install Nginx Ingress Controller
 
 ```xml
 kubectl apply -f ingress-controller-for-kind.yaml
 ```
 
-### Verify
+- **Verify**
 
-```xml
+```bash
 kubectl get pods -n ingress-nginx
 kubectl get svc -n ingress-nginx
 kubectl get deploy -n ingress-nginx
 kubectl describe pod <pod-name> -n ingress-nginx
 ```
 
-#### 
+- **Verify ingress resources**
 
-#### -
-## 4. Install metrics server 
-
-```xml
-kubectl apply -f metrics-server-components.yaml
-```
-
-
-### 5. Install HELM 
-
-
-```xml
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-helm version
-helm
-```
-#### -----------------------------------------
-
-## ingress resources
-
-```xml
+```bash
 kubectl get ingressclass         ## SWhen you installer nginx ingress controller
+```
 
-What is k8s.io/ingress-nginx: It is the unique controller identifier used by the NGINX Ingress Controller to associate itself with an IngressClass and process matching ingress resources.
+- **What is k8s.io/ingress-nginx:** It is the unique controller identifier used by the NGINX Ingress Controller to associate itself with an 'IngressClass' and process matching ingress resources.
 
+```bash
 kubectl get ingress                      # Check Ingress Resource
-kubectl describe ingress demo   # Check Ingress Resource
-
+kubectl describe ingress demo            # Check Ingress Resource
 kubectl logs -n ingress-nginx <controller-pod>   # Check Ingress Logs
-
-
 ```
+---
 
+## 6. Install ArgoCD
+
+```bash
+kubectl create namespace argocd
 ```
+```bash
+kubectl apply -n argocd -f 
+```
+```bash
+kubectl get pods -n argocd -w
+```
+- **Get the initial admin password**
+
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret \
+  -o jsonpath="{.data.password}" | base64 -d
+echo
+```
+- **Login with:**
+Username: admin
+Password: <password-from-command>
+
+---
