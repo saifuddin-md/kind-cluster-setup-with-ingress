@@ -107,7 +107,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 echo
 ```
 - **Login with:**
-Username: admin
-Password: <password-from-command>
+- Username: admin
+- Password: <password-from-command>
 
 ---
