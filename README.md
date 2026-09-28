@@ -1,4 +1,4 @@
-# kind Setup with (ArgoCD, Nginx Ingress Controller, Helm, metrics server)
+# kind Setup with (ArgoCD, Ingress Controller, Helm, metrics server)
 ---
 
 ## Table of Contents
@@ -14,18 +14,18 @@
 
 ## 1. Setup Kind
 
-**a. Clone the Repo.**
+- *(a.)* **Clone the Repo.**
 
 ```bash
 git clone https://github.com/saifuddin-md/kind-cluster-setup-with-ingress.git
 ```
-**b. Install kubectl and kind**
+- *(b.)* **Install kubectl and kind**
 ```bash
 cd kind-cluster-setup-with-ingress
 chmod +x kind-kubectl.sh
 ./install-kind-kubectl.sh
 ```
-**c. Verify**
+- *(c.)* **Verify**
 
 ```xml
 kind version
@@ -40,7 +40,7 @@ kind create cluster --name mycluster --config cluster-config.yml --image kindest
 ```
 **Note:** (**Fore Delete cluster:** *kind delete cluster --name mycluster* | *kind get clusters*)
 
-### Verify
+- **Verify**
 
 ```bash
 docker ps
@@ -54,26 +54,27 @@ kubectl cluster-info
 ---
 ## 3. Setup ArgoCD
 
-- a. **Create the Argo CD namespace**
+- *(a.)* **Create the Argo CD namespace**
 ```bash
 kubectl create namespace argocd
 ```
-- b. **Install Argo CD**
+- *(b.)* **Install Argo CD**
 ```bash
 kubectl apply -n argocd -f argo-cd-for-kind-install.yaml
 ```
-- c. **Wait for the pods:**
+- *(c.)* **Wait for the pods:**
 ```bash
 kubectl get pods -n argocd -w
 ```
-- d. **Get the initial admin password**
+- *(d.)*. **Get the initial admin password**
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret \
   -o jsonpath="{.data.password}" | base64 -d
 echo
 ```
-- e. **Login with:**
+- *(e.)* **Login with:**
+- 
 - Username: admin
 - Password: <password-from-command>
 ---
