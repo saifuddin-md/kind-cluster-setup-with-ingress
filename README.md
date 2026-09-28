@@ -14,18 +14,18 @@
 
 ## 1. Setup Kind
 
-### a. Clone the Repo.
+**a. Clone the Repo.**
 
 ```bash
 git clone https://github.com/saifuddin-md/kind-cluster-setup-with-ingress.git
 ```
-### b. Install kubectl and kind
+**b. Install kubectl and kind**
 ```bash
 cd kind-cluster-setup-with-ingress
 chmod +x kind-kubectl.sh
 ./install-kind-kubectl.sh
 ```
-### c. Verify
+**c. Verify**
 
 ```xml
 kind version
