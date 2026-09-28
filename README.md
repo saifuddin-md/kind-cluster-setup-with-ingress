@@ -1,4 +1,4 @@
-# kind Setup with Nginx Ingress Controller
+# kind Setup with (ArgoCD, Nginx Ingress Controller, Helm, metrics server)
 ---
 
 ## Table of Contents
@@ -11,9 +11,6 @@
 - [6. Install metrics server](#6-install-metrics-server)
 
 ---
-
-
-
 
 ## 1. Setup Kind
 
@@ -35,7 +32,8 @@ kind version
 kubectl version --client
 ```
 
-## 2. Setup Cluster (with one master and two worker Node)
+## 2. Setup Cluster 
+- (with one master and two worker Node)
 
 ```xml
 kind create cluster --name mycluster --config cluster-config.yml --image kindest/node:v1.33.1
