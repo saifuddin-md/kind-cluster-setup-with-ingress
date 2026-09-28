@@ -3,9 +3,9 @@
 
 ## Table of Contents
 
-- [1. Setup Kind](#-Setup-Kind)
-- [2. Setup Cluster](#-Setup-Cluster)
-- [3. Setup ArgoCDl](#-Setup-ArgoCD)
+- [1. Setup Kind](#-1.-Setup-Kind)
+- [2. Setup Cluster](#-2.-Setup-Cluster)
+- [3. Setup ArgoCDl](#-3.-Setup-ArgoCD)
 - [4. Install Nginx Ingress Controller](#-Install-Nginx-Ingress-Controller)
 - [5. Install HELM](#-Install-HELM)
 - [6. Install metrics server](#-Install-metrics-server)
