@@ -3,8 +3,8 @@
 
 ## Table of Contents
 
-- [1. Setup Kind](#-1.-Setup-Kind)
-- [2. Setup Cluster](#-2.-Setup-Cluster)
+- [1. Setup Kind](#1-setup-kind)
+- [2. Setup Cluster](#2-Setup-Cluster)
 - [3. Setup ArgoCDl](#-3.-Setup-ArgoCD)
 - [4. Install Nginx Ingress Controller](#-Install-Nginx-Ingress-Controller)
 - [5. Install HELM](#-Install-HELM)
@@ -17,19 +17,18 @@
 
 ## 1. Setup Kind
 
-#### 
-## a. Clone the Repo.
+### a. Clone the Repo.
 
 ```bash
 git clone https://github.com/saifuddin-md/kind-cluster-setup-with-ingress.git
 ```
-## b. Install kubectl and kind
+### b. Install kubectl and kind
 ```bash
 cd kind-cluster-setup-with-ingress
 chmod +x kind-kubectl.sh
 ./install-kind-kubectl.sh
 ```
-## c. Verify
+### c. Verify
 
 ```xml
 kind version
